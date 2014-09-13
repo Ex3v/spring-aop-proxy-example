@@ -2,6 +2,8 @@ package com.aop.test;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.aop.test.beans.EventWithInterface;
+
 public class App {
 
 	public static void main(String[] args) {
@@ -18,6 +20,14 @@ public class App {
 		
 		Object eventUsingInterface = context.getBean("eventWithInterface");
 		System.out.println("Class of event that takes part in AOP and implements interfaces: " + eventUsingInterface.getClass());
+		
+		
+		System.out.println("Now let's try to cast last bean to it's proper class:");
+		
+		//UNCOMMENT TO SEE SOME MAGIC
+//		EventWithInterface castedEventUsingInterface = (EventWithInterface)context.getBean("eventWithInterface");
+		
+		
 		
 		context.close();
 	}
